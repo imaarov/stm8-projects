@@ -7,12 +7,12 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
 - MCU Family: STM8S
 - Programmer: ST-Link
 - Compiler: SDCC
-- Development Style: Bare Metal (No RTOS, No HAL)
+- Development Style: Bare Metal (No SPL, No HAL)
 
 ## Projects
 
 ### 1. Bare Metal LED Blink
-A simple LED blinking project written in C to verify toolchain setup, flashing, GPIO configuration, and basic STM8S development workflow.
+A simple LED blinking project written in C to verify toolchain setup, flashing, GPIO configuration, and basic STM8S development workflow (work in progress).
 
 **Features**
 - Direct register manipulation
@@ -31,6 +31,7 @@ Future projects may support additional STM8S devices.
 ## Build & Flash
 
 Compile the project using SDCC and flash the generated binary to the target MCU using an ST-Link programmer.
+I'm using the EIDE extension in vscode. My environment is GNU/Linux, and I'm kind of forced to work with vscode.
 
 ## License
 
