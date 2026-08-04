@@ -4,7 +4,7 @@
 #define uint_16 unsigned short
 
 // define bit masks
-#define PB5_MASK       (1 << 5)
+#define PB5_MASK       (1U << 5)
 #define PB5_CLEAR_MASK (~PB5_MASK)
 
 // Port/Pin Base Address Definition

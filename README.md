@@ -12,7 +12,7 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
 ## Projects
 
 ### 1. Bare Metal LED Blink
-A simple LED blinking project written in C to verify toolchain setup, flashing, GPIO configuration, and basic STM8S development workflow (work in progress).
+A simple LED blinking project written in C to verify toolchain setup, flashing, GPIO configuration, and basic STM8S development workflow.
 
 **Features**
 - Direct register manipulation
