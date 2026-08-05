@@ -1,5 +1,6 @@
 #include "stm8sc.h" // my custom stm8 header, not the SPL
 #include "stm8sc_tim4.h"
+#include "stm8sc_clk.h"
 
 #define LOOP_COUNT 70000U
 
@@ -12,6 +13,11 @@ void main(void)
     GPIOB_T->CR1 |= PB5_MASK;       // configure PB5 as PUSH PULL
     GPIOB_T->CR2 &= PB5_CLEAR_MASK; // configure PB5 as Slow Ouput
     GPIOB_T->DDR |= PB5_MASK;       // ... DDR = 1 (mode OUTPUT)
+
+    // initializing fMaster Clock for CPU to be the default 16MHz
+    // its seems like after reset, clkdiv is set to 4 and the fMaster is 4MHz
+    CLK->CKDIVR &= ~(CPUDIV_MASK | HSIDIV_MASK);
+    CLK->CKDIVR |= DIV_1;
 
     // software based Delay
     // while (1) {
