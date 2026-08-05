@@ -66,6 +66,17 @@ Compile the project using SDCC and flash the generated binary to the target MCU 
 
 The project is developed using the EIDE extension in Visual Studio Code on a GNU/Linux environment.
 
+You can use the `build.sh` bash script as well, Im on GNU/Linux and using EIDE extension on vscode, thats automate my building and flashing as well
+Build
+```bash
+./build.sh
+```
+
+flash
+```bash
+./build --flash
+```
+
 ## License
 
 This repository is provided for learning, experimentation, and embedded systems development.
