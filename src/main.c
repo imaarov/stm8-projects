@@ -13,22 +13,19 @@ void main(void)
     GPIOB_T->CR2 &= PB5_CLEAR_MASK; // configure PB5 as Slow Ouput
     GPIOB_T->DDR |= PB5_MASK;       // ... DDR = 1 (mode OUTPUT)
 
-    // main loop
-
-    //while (1) {
+    // software based Delay
+    // while (1) {
     //    GPIOB_T->ODR ^= PB5_MASK;
     //    DelayLoop();
     //}
 
+    // hardware based Delay with TIM4
     TIM4_Init();
-    while (1)
-    {
+    while (1) {
         TIM4_DelayMs(500);
         GPIOB_T->ODR ^= PB5_MASK;
     }
-    
 }
-
 
 // software delay
 void DelayLoop(void)

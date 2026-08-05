@@ -17,26 +17,24 @@ typedef struct
     volatile uint_8 EGR;
     volatile uint_8 CNTR;
     volatile uint_8 PSCR;
-    volatile uint_8 ARR; 
+    volatile uint_8 ARR;
 } TIM4_T;
 
-enum Prescaler 
-{
-    Prescaler_1 = 0,
-    Prescaler_2 = 1,
-    Prescaler_4 = 2,
-    Prescaler_8 = 3,
-    Prescaler_16 = 4,
-    Prescaler_32 = 5,
-    Prescaler_64 = 6,
+enum Prescaler {
+    Prescaler_1   = 0,
+    Prescaler_2   = 1,
+    Prescaler_4   = 2,
+    Prescaler_8   = 3,
+    Prescaler_16  = 4,
+    Prescaler_32  = 5,
+    Prescaler_64  = 6,
     Prescaler_128 = 7
 };
 
 #define TIM4_CR1_CEN (1U << 0)
 #define TIM4_SR_UIF  (1U << 0)
 
-#define TIM4 ((TIM4_T *) TIM4_Address)
-
+#define TIM4         ((TIM4_T *)TIM4_Address)
 
 // API
 void TIM4_Init(void);
