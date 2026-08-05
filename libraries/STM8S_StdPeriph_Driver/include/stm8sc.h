@@ -1,7 +1,9 @@
 #ifndef STM8SC_H
+#define STM8SC_H
 
 #define uint_8  unsigned char
 #define uint_16 unsigned short
+#define uint_32 unsigned long
 
 // define bit masks
 #define PB5_MASK       (1U << 5)
@@ -11,7 +13,7 @@
 #define GPIOB_Address 0x5005U
 
 // Struct Based on GPIO Adress
-typedef struct GPIO_T {
+typedef struct {
     volatile uint_8 ODR; // Output Data      Register
     volatile uint_8 IDR; // Input  Data      Register
     volatile uint_8 DDR; // Data   Direction Register

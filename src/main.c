@@ -1,6 +1,7 @@
 #include "stm8sc.h" // my custom stm8 header, not the SPL
+#include "stm8sc_tim4.h"
 
-#define LOOP_COUNT 50000U
+#define LOOP_COUNT 70000U
 
 void DelayLoop(void);
 
@@ -14,15 +15,23 @@ void main(void)
 
     // main loop
 
-    while (1) {
+    //while (1) {
+    //    GPIOB_T->ODR ^= PB5_MASK;
+    //    DelayLoop();
+    //}
+
+    TIM4_Init();
+    while (1)
+    {
+        TIM4_DelayMs(500);
         GPIOB_T->ODR ^= PB5_MASK;
-        DelayLoop();
     }
+    
 }
 
+
+// software delay
 void DelayLoop(void)
 {
-    for (volatile uint_16 i = 0; i < LOOP_COUNT; i++) {
-        // nop
-    }
+    for (volatile uint_32 i = 0; i < LOOP_COUNT; i++);
 }
