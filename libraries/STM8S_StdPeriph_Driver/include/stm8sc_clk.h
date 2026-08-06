@@ -1,7 +1,7 @@
 #ifndef STM8SC_CLK_H
 #define STM8SC_CLK_H
 
-#include "stm8sc.h"
+#include "stm8sc_gpio.h"
 
 #define CLK_Address 0x50C0U
 
@@ -38,5 +38,8 @@ enum CPUDIV {
 };
 
 #define CLK ((CLK_T *)CLK_Address)
+
+// CLK API
+void CLK_Init_16MHz(void);
 
 #endif // !STM8SC_CLK_H

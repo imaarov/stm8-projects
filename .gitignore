@@ -4,6 +4,8 @@
 /.eide/log
 /.eide.usr.ctx.json
 
+.vscode
+
 # project out
 /build
 /bin
@@ -13,3 +15,12 @@
 # eide template
 *.ept
 *.eide-template
+
+libraries/*
+image
+.eide
+stm8s_sdcc-quickstart.code-workspace
+!libraries/STM8S_StdPeriph_Driver/include/stm8sc_clk.h
+!libraries/STM8S_StdPeriph_Driver/source/stm8sc_clk.c
+!libraries/STM8S_StdPeriph_Driver/include/stm8sc_gpio.h
+!libraries/STM8S_StdPeriph_Driver/include/stm8sc_tim4.h

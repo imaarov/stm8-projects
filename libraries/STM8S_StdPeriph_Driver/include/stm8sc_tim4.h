@@ -1,7 +1,7 @@
 #ifndef STM8SC_TIM4_H
 #define STM8SC_TIM4_H
 
-#include "stm8sc.h"
+#include "stm8sc_gpio.h"
 
 #define TIM4_Address 0x5340
 
