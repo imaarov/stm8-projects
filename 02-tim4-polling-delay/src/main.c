@@ -2,8 +2,6 @@
 #include "stm8sc_tim4.h"
 #include "stm8sc_clk.h"
 
-#define LOOP_COUNT 70000U
-
 static uint_16 ms_counter = 0;
 
 void GPIO_Init(void);
