@@ -20,17 +20,6 @@ void main(void)
     }
 }
 
-void TIM4_IRS_Handler(void) __interrupt(23)
-{
-    TIM4->SR1 &= ~TIM4_SR_UIF;
-
-    ms_counter++;
-    if (ms_counter >= 500) {
-        ms_counter = 0;
-        GPIOB_T->ODR ^= PB5_MASK;
-    }
-}
-
 void GPIO_Init(void)
 {
     // initializing proper GPIO for LED

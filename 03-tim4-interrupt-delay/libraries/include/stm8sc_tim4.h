@@ -42,5 +42,6 @@ void TIM4_Init(void);
 void TIM4_DelayMs(uint_16 ms);
 void TIM4_ENABLE_INTERRUPT(void);
 void TIM4_Start(void);
+void TIM4_IRS_Handler(void) __interrupt(23);
 
 #endif // !STM8SC_TIM4_H
