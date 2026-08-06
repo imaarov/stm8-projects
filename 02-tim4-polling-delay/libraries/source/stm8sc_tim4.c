@@ -9,16 +9,6 @@ void TIM4_Init(void)
     TIM4->SR1 &= ~TIM4_SR_UIF;
 }
 
-void TIM4_ENABLE_INTERRUPT(void)
-{
-    TIM4->IER |= TIM4_IER_UIE;
-}
-
-void TIM4_Start(void)
-{
-    TIM4->CR1 |= TIM4_CR1_CEN;
-}
-
 void TIM4_DelayMs(uint_16 ms)
 {
     TIM4->CR1 &= ~TIM4_CR1_CEN;
@@ -35,11 +25,6 @@ void TIM4_DelayMs(uint_16 ms)
 
         TIM4->SR1 &= ~TIM4_SR_UIF;
         --ms;
-        // if ((TIM4->SR1 & TIM4_SR_UIF)) // UIF overflow bit is one
-        //{
-        //     TIM4->SR1 &= ~TIM4_SR_UIF;
-        //     --ms;
-        // }
     }
 
     TIM4->CR1 &= ~TIM4_CR1_CEN;

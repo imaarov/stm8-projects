@@ -3,9 +3,9 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
 ## Table of Contents
 * [Hardware & Toolchain](#hardware--toolchain)
 * [Projects](#projects)
-  * [1. Bare Metal LED Blink - Software Delay](#1-bare-metal-led-blink---software-delay)
-  * [2. TIM4 Hardware Timer Delay Driver (Polling, Specificly Busy Wait)](#2-tim4-hardware-timer-delay-driver)
-  * [3. TIM4 Hardware Timer Delay Driver (Interrupt-Driven)](#3-tim4-hardware-timer-delay-driver-interrupt-driven)
+  * [1. Bare Metal LED Blink - Software Delay](./01-led-blink-software-delay)
+  * [2. TIM4 Hardware Timer Delay Driver (Polling, Specificly Busy Wait)](./02-tim4-polling-delay)
+  * [3. TIM4 Hardware Timer Delay Driver (Interrupt-Driven)](./03-tim4-interrupt-delay)
 * [Supported MCU](#supported-mcu)
 * [Build & Flash](#build--flash)
 * [License](#license)
@@ -17,7 +17,7 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
 * IDE: Visual Studio Code with EIDE extension
 * Environment: GNU/Linux
 ## Projects
-### 1. Bare Metal LED Blink - Software Delay
+### [1. Bare Metal LED Blink - Software Delay](./01-led-blink-software-delay)
 A simple LED blinking project written in C to verify toolchain setup, flashing, GPIO configuration, and basic STM8S development workflow.
 **Features**
 * Direct register manipulation
@@ -25,7 +25,7 @@ A simple LED blinking project written in C to verify toolchain setup, flashing, 
 * Software-based delay loop
 * Minimal STM8S bare-metal example
 ---
-### 2. TIM4 Hardware Timer Delay Driver
+### [2. TIM4 Hardware Timer Delay Driver](./02-tim4-polling-delay)
 A bare-metal TIM4 driver implementing millisecond delays using the STM8S hardware timer peripheral.
 The project demonstrates direct interaction with STM8S timer registers without relying on SPL or HAL libraries.
 **Features**
@@ -36,7 +36,7 @@ The project demonstrates direct interaction with STM8S timer registers without r
 * Manual flag handling and overflow detection
 * Resource management (timer start/stop control)
 ---
-### 3. TIM4 Hardware Timer Delay Driver (Interrupt-Driven)
+### [3. TIM4 Hardware Timer Delay Driver (Interrupt-Driven)](./03-tim4-interrupt-delay)
 A bare-metal TIM4 driver reworked to use hardware interrupts instead of busy-wait polling, freeing up the main loop while keeping precise millisecond timing.
 The project demonstrates SDCC's `__interrupt(N)` mechanism and STM8's auto-generated interrupt vector table, without relying on SPL or HAL libraries.
 **Features**
