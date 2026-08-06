@@ -6,7 +6,7 @@
 
 .vscode
 
-# project out
+# project output
 /build
 /bin
 /obj
@@ -16,11 +16,25 @@
 *.ept
 *.eide-template
 
-libraries/*
-image
-.eide
-stm8s_sdcc-quickstart.code-workspace
+
+# Ignore everything in libraries
+libraries/**
+
+# Allow directory traversal
+!libraries/STM8S_StdPeriph_Driver/
+!libraries/STM8S_StdPeriph_Driver/include/
+!libraries/STM8S_StdPeriph_Driver/source/
+
+# Allow only my files
 !libraries/STM8S_StdPeriph_Driver/include/stm8sc_clk.h
-!libraries/STM8S_StdPeriph_Driver/source/stm8sc_clk.c
 !libraries/STM8S_StdPeriph_Driver/include/stm8sc_gpio.h
 !libraries/STM8S_StdPeriph_Driver/include/stm8sc_tim4.h
+
+!libraries/STM8S_StdPeriph_Driver/source/stm8sc_clk.c
+!libraries/STM8S_StdPeriph_Driver/source/stm8sc_tim4.c
+
+
+.eide/
+image/
+stm8s_sdcc-quickstart.code-workspace
+
