@@ -23,6 +23,5 @@ typedef struct {
 
 // Cast the GPIO B to GPIO_T struct
 #define GPIOB_T ((GPIO_T *)GPIOB_Address)
-lakdjf
 
 #endif // !STM8SC_GPIO_H
