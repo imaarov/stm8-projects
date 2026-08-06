@@ -33,11 +33,14 @@ enum Prescaler {
 
 #define TIM4_CR1_CEN (1U << 0)
 #define TIM4_SR_UIF  (1U << 0)
+#define TIM4_IER_UIE (1U << 0)
 
 #define TIM4         ((TIM4_T *)TIM4_Address)
 
 // API
 void TIM4_Init(void);
 void TIM4_DelayMs(uint_16 ms);
+void TIM4_ENABLE_INTERRUPT(void);
+void TIM4_Start(void);
 
 #endif // !STM8SC_TIM4_H

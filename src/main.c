@@ -4,6 +4,8 @@
 
 #define LOOP_COUNT 70000U
 
+static uint_16 ms_counter = 0;
+
 void GPIO_Init(void);
 void DelayLoop(void);
 
@@ -20,8 +22,19 @@ void main(void)
 
     // hardware based Delay with TIM4
     TIM4_Init();
+    TIM4_ENABLE_INTERRUPT();
+    TIM4_Start();
+    __asm__("rim");
     while (1) {
-        TIM4_DelayMs(200);
+    }
+}
+void TIM4_IRS_Handler(void) __interrupt(23)
+{
+    TIM4->SR1 &= ~TIM4_SR_UIF;
+
+    ms_counter++;
+    if (ms_counter >= 500) {
+        ms_counter = 0;
         GPIOB_T->ODR ^= PB5_MASK;
     }
 }
