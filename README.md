@@ -6,7 +6,7 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
   - [1. Bare Metal LED Blink - Software Delay](./01-led-blink-software-delay)
   - [2. TIM4 Hardware Timer Delay Driver (Polling, Specifically Busy Wait)](./02-tim4-polling-delay)
   - [3. TIM4 Hardware Timer Delay Driver (Interrupt-Driven)](./03-tim4-interrupt-delay)
-  - [4. TIM4 Interrupt + GPIO Button Polling](./04-tim4-interrupt-button-polling)
+  - [4. TIM4 Interrupt + GPIO Button Polling](./04-button-polling-with-tim4-interrupt)
 - [Supported MCU](#supported-mcu)
 - [Build & Flash](#build--flash)
 - [License](#license)
