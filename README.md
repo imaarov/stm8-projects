@@ -8,6 +8,7 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
   - [3. TIM4 Hardware Timer Delay Driver (Interrupt-Driven)](./03-tim4-interrupt-delay)
   - [4. TIM4 Interrupt + GPIO Button Polling](./04-button-polling-with-tim4-interrupt)
   - [5. Button Debounce + Event Detection](./05-button-debounce-event)
+  - [6. Button EXTI Debounce + Event Detection](./06-button-exti-debounce-event)
 - [Supported MCU](#supported-mcu)
 - [Build & Flash](#build--flash)
 - [License](#license)
@@ -101,6 +102,26 @@ The push button connected to PD3 is continuously sampled and debounced before ge
 * Separation of button state and button events
 
 ---
+
+
+### [6. Button EXTI Debounce + Event Detection](./06-button-exti-debounce-event)
+
+A project combining STM8 external interrupts (EXTI), software debouncing, and event-driven button handling.
+
+The push button connected to PD3 generates an external interrupt whenever its state changes. The interrupt notifies the application that a potential button event has occurred, while a TIM4-based millisecond system tick is used to debounce the input before generating button press events.
+
+The onboard LED connected to PB5 responds to button press events, while the external LED connected to PA3 continues to toggle every 500ms using the TIM4 interrupt.
+
+**Features**
+
+- STM8 EXTI (external interrupt) button detection
+- Interrupt-driven button state notification
+- Software button debouncing
+- Button press event detection
+- TIM4 millisecond system tick
+- Active-low push button with internal pull-up
+- Separation of interrupt handling, button processing, and event generation
+- Bare-metal register-level STM8 programming
 
 ## Supported MCU
 
