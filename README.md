@@ -7,6 +7,7 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
   - [2. TIM4 Hardware Timer Delay Driver (Polling, Specifically Busy Wait)](./02-tim4-polling-delay)
   - [3. TIM4 Hardware Timer Delay Driver (Interrupt-Driven)](./03-tim4-interrupt-delay)
   - [4. TIM4 Interrupt + GPIO Button Polling](./04-button-polling-with-tim4-interrupt)
+  - [5. Button Debounce + Event Detection](./05-button-debounce-event)
 - [Supported MCU](#supported-mcu)
 - [Build & Flash](#build--flash)
 - [License](#license)
@@ -68,7 +69,7 @@ The project demonstrates SDCC's `__interrupt(N)` mechanism and STM8's auto-gener
 
 ---
 
-### [4. TIM4 Interrupt + GPIO Button Polling](./04-tim4-interrupt-button-polling)
+### [4. TIM4 Interrupt + GPIO Button Polling](./04-button-polling-with-tim4-interrupt)
 
 A project combining TIM4 interrupt handling with GPIO polling.
 
@@ -81,6 +82,23 @@ An external LED connected to PA3 is toggled every 500ms inside the TIM4 interrup
 - Internal pull-up configuration
 - Active-low push button input
 - Multiple GPIO configurations in one project
+
+---
+
+### [5. Button Debounce + Event Detection](./05-button-debounce-event)
+
+A project implementing software debouncing and event-based button handling on top of GPIO polling and the TIM4 millisecond system tick.
+
+The push button connected to PD3 is continuously sampled and debounced before generating a button press event. The onboard LED connected to PB5 responds to the generated event, while the external LED connected to PA3 continues to toggle every 500ms using the TIM4 interrupt.
+
+**Features**
+
+* GPIO button polling
+* Software button debouncing
+* Button press event detection
+* TIM4 millisecond system tick
+* Active-low push button with internal pull-up
+* Separation of button state and button events
 
 ---
 
