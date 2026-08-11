@@ -35,7 +35,7 @@ void main(void)
 
 void UART1_DATA_TASK(void)
 {
-    // send data 1ms through UART1
+    // send data 300ms through UART1
     if (system_tick_ms - uart1_last_data_time >= UART1_DATA_SEND_MS)
     {
         uart1_last_data_time = system_tick_ms;
