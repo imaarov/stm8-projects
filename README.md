@@ -9,8 +9,10 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
   - [4. TIM4 Interrupt + GPIO Button Polling](./04-button-polling-with-tim4-interrupt)
   - [5. Button Debounce + Event Detection](./05-button-debounce-event)
   - [6. Button EXTI Debounce + Event Detection](./06-button-exti-debounce-event)
+  - [7. UART1 Send Data Polling](./07-uart-send-data-polling)
 - [Supported MCU](#supported-mcu)
 - [Build & Flash](#build--flash)
+- [UART Commands on GNU/Linux](#uart-gnulinux-commands)
 - [License](#license)
 
 ## Hardware & Toolchain
@@ -94,12 +96,12 @@ The push button connected to PD3 is continuously sampled and debounced before ge
 
 **Features**
 
-* GPIO button polling
-* Software button debouncing
-* Button press event detection
-* TIM4 millisecond system tick
-* Active-low push button with internal pull-up
-* Separation of button state and button events
+- GPIO button polling
+- Software button debouncing
+- Button press event detection
+- TIM4 millisecond system tick
+- Active-low push button with internal pull-up
+- Separation of button state and button events
 
 ---
 
@@ -122,6 +124,29 @@ The onboard LED connected to PB5 responds to button press events, while the exte
 - Active-low push button with internal pull-up
 - Separation of interrupt handling, button processing, and event generation
 - Bare-metal register-level STM8 programming
+
+---
+
+
+### [7. UART1 Send Data Polling](./07-uart-send-data-polling)
+
+A project introducing UART communication on STM8S using direct register-level programming.
+
+UART1 is configured for asynchronous serial communication at 9600 baud. A TIM4-based millisecond system tick is used to periodically transmit messages through UART1 while keeping the main loop responsive.
+
+The project demonstrates UART peripheral initialization, GPIO configuration for TX/RX operation, transmit polling using the TXE flag, and string transmission without relying on SPL or HAL libraries.
+
+**Features**
+
+* UART1 initialization using direct register access
+* 9600 baud asynchronous communication
+* UART transmit polling (TXE flag)
+* String transmission support
+* TIM4 interrupt-driven millisecond system tick
+* Periodic UART message transmission
+* UART monitor banner output
+* Bare-metal STM8 programming
+
 
 ## Supported MCU
 
@@ -149,4 +174,24 @@ Flash:
 
 ```bash
 ./build.sh --flash
+```
+
+## UART GNU/Linux Commands
+
+- install picocom
+
+```bash
+sudo apt update && sudo apt install picocom
+```
+
+- find the USB UART Bridge
+
+```bash
+ls -l /dev/serial/by-id/
+```
+
+- listen to the USB UART bridge
+
+```bash
+picocom -b 9600 /dev/ttyUSB0
 ```
