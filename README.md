@@ -10,6 +10,8 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
   - [5. Button Debounce + Event Detection](./05-button-debounce-event)
   - [6. Button EXTI Debounce + Event Detection](./06-button-exti-debounce-event)
   - [7. UART1 Send Data Polling](./07-uart-send-data-polling)
+  - [8. UART1 Echo (Polling)](./08-uart-echo-polling)
+
 - [Supported MCU](#supported-mcu)
 - [Build & Flash](#build--flash)
 - [UART Commands on GNU/Linux](#uart-gnulinux-commands)
@@ -145,6 +147,26 @@ The project demonstrates UART peripheral initialization, GPIO configuration for 
 * TIM4 interrupt-driven millisecond system tick
 * Periodic UART message transmission
 * UART monitor banner output
+* Bare-metal STM8 programming
+
+---
+
+
+### [8. UART1 Echo (Polling)](./08-uart-echo-polling)
+
+A project extending UART communication to support bidirectional data transfer using polling.
+
+UART1 is configured for asynchronous communication at 9600 baud. The application waits for incoming data, echoes the received byte back to the sender, and transmits a short message.
+
+This project demonstrates UART reception using the RXNE flag and introduces interactive serial communication on STM8.
+
+**Features**
+
+* UART receive polling (RXNE flag)
+* UART transmit polling (TXE flag)
+* Full duplex UART communication
+* Echo functionality (receive → send back)
+* Simple interactive serial interface
 * Bare-metal STM8 programming
 
 
