@@ -11,6 +11,8 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
   - [6. Button EXTI Debounce + Event Detection](./06-button-exti-debounce-event)
   - [7. UART1 Send Data Polling](./07-uart-send-data-polling)
   - [8. UART1 Echo (Polling)](./08-uart-echo-polling)
+  - [9. UART1 Echo (Interrupt)](./09-uart-echo-interrupt)
+  - [10. UART1 Echo with Ring Buffer](./10-uart-echo-ring-buffer)
 
 - [Supported MCU](#supported-mcu)
 - [Build & Flash](#build--flash)
@@ -168,6 +170,44 @@ This project demonstrates UART reception using the RXNE flag and introduces inte
 * Echo functionality (receive → send back)
 * Simple interactive serial interface
 * Bare-metal STM8 programming
+
+---
+
+### [9. UART1 Echo (Interrupt)](./09-uart-echo-interrupt)
+
+A project extending UART communication to use interrupt-driven reception instead of polling.
+
+UART1 is configured for asynchronous communication at 9600 baud. Received bytes are handled by the UART interrupt and passed to the main loop using a simple event flag.
+
+The project also demonstrates a race condition caused by sharing a single receive buffer between the ISR and main loop, which motivates the ring buffer implementation in project 10.
+
+**Features**
+
+* UART receive interrupt (RXNE)
+* Event-based communication between ISR and main loop
+* UART transmit polling (TXE flag)
+* TIM4 interrupt-driven millisecond system tick
+* Demonstration of shared-data race condition
+* Bare-metal STM8 programming
+
+---
+
+### [10. UART1 Echo with Ring Buffer](./10-uart-echo-ring-buffer)
+
+A continuation of the UART interrupt project that introduces a fixed-size ring buffer for handling multiple received bytes asynchronously.
+
+The UART interrupt stores received data in the buffer while the main loop processes it independently, avoiding the single-byte buffer limitation of project 9.
+
+**Features**
+
+* UART receive interrupt (RXNE)
+* Fixed-size ring buffer
+* Head/tail buffer management
+* UART overrun detection
+* UART transmit polling (TXE flag)
+* TIM4 interrupt-driven millisecond system tick
+* Bare-metal STM8 programming
+
 
 
 ## Supported MCU
