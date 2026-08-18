@@ -13,6 +13,7 @@ A collection of STM8S bare-metal projects developed using the SDCC compiler and 
   - [8. UART1 Echo (Polling)](./08-uart-echo-polling)
   - [9. UART1 Echo (Interrupt)](./09-uart-echo-interrupt)
   - [10. UART1 Echo with Ring Buffer](./10-uart-echo-ring-buffer)
+  - [11. UART Command Parser with Ring Buffer](./11-uart-command-parser)
 
 - [Supported MCU](#supported-mcu)
 - [Build & Flash](#build--flash)
@@ -208,6 +209,24 @@ The UART interrupt stores received data in the buffer while the main loop proces
 * TIM4 interrupt-driven millisecond system tick
 * Bare-metal STM8 programming
 
+---
+
+### [11. UART Command Parser with Ring Buffer](./11-uart-command-parser)
+
+A continuation of the UART ring-buffer project that introduces command parsing on top of asynchronous UART reception.
+
+Received bytes are stored in the ring buffer by the UART interrupt, while the main loop searches for and processes commands such as `ledon` and `ledoff`. This project also demonstrates separating command detection from application events.
+
+**Features**
+
+* UART receive interrupt (RXNE)
+* Fixed-size ring buffer
+* Command parsing from a byte stream
+* Ring-buffer boundary handling
+* Event-based command processing
+* UART overrun detection
+* TIM4 interrupt-driven millisecond system tick
+* Bare-metal STM8 programming
 
 
 ## Supported MCU
